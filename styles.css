@@ -1,0 +1,53 @@
+.calculator
+{
+    display:grid;
+    height:100vh;
+    grid-template-areas:
+    "display display display display"
+    "divide divide divide divide"
+    "multiply multiply multiply multiply"
+    "subtract subtract subtract subtract"
+    "add add add add"
+    "equals equals equals equals"
+}
+.display, .divideZone, .multiplyZone,.addZone,.subtractZone,.equalsZone
+{
+    display:flex;
+}
+.display
+{
+    grid-area:display;
+    
+}
+.divideZone
+{
+    grid-area:divide;
+    
+    justify-content:space-between
+}
+.multiplyZone
+{
+    grid-area:multiply;
+   
+}
+.subtractZone
+{
+    grid-area:subtract;
+   
+}
+.addZone
+{
+    grid-area:add;
+    
+}
+.equalsZone
+{
+    grid-area:equals;
+    
+}
+
+button{
+    height:50px;
+    width:50px;
+    flex-grow:1;
+}
