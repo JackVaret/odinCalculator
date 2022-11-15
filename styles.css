@@ -1,7 +1,16 @@
+
+.main
+{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 .calculator
 {
     display:grid;
-    height:100vh;
+    height:300px;
+    width:300px;
+    
     grid-template-areas:
     "display display display display"
     "divide divide divide divide"
