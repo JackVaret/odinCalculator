@@ -49,6 +49,7 @@ function populateDisplay(e)
     let value = e.target.innerHTML;
     displayValue = displayValue + value;
     display.innerHTML = displayValue;
+    currentNum = displayValue;
     
 }
 
@@ -59,8 +60,65 @@ allNums[0].addEventListener("click", populateDisplay);
 for(const num of allNums)
 {
     num.addEventListener("click", populateDisplay);
+
 }
 // Store the displayValue as a number
 let currentNum = displayValue;
 // Create a temporary number that will gain the value of currentNum when an operation is called 
 let tempNum = 0;
+// Create a mode variable to track which operation the calculator will call
+let mode = "";
+// Create the ClearDisplay Function
+function clearDisplay()
+{
+    display.innerHTML = "";
+    
+}
+// Create functions for each operation button
+
+// Create the function tied to the addition button
+// For each button, they should set the current mode, set the temporarynumber to be the cucrent display, and then clear the display
+
+    // Create a constant for the addition button
+    const addButton = document.querySelector(".addButton");
+    addButton.addEventListener("click", function()
+    {
+        mode = "add";// Set mode to add mode
+        tempNum = currentNum; // Set the temporary number to be the current number
+        clearDisplay();
+        currentNum = 0;// Reset the current number 
+        displayValue = "";
+
+    });
+    
+     const subtractButton = document.querySelector(".subtractButton");
+    subtractButton.addEventListener("click", function()
+    {
+        mode = "subtract";// Set mode to add mode
+        tempNum = currentNum; // Set the temporary number to be the current number
+        clearDisplay();
+        currentNum = 0;// Reset the current number 
+        displayValue = "";
+
+    })
+    const multiplyButton = document.querySelector(".multiplyButton");
+    multiplyButton.addEventListener("click", function()
+    {
+        mode = "multiply";// Set mode to add mode
+        tempNum = currentNum; // Set the temporary number to be the current number
+        clearDisplay();
+        currentNum = 0;// Reset the current number 
+        displayValue = "";
+
+    })
+    const divideButton = document.querySelector(".divideButton");
+    divideButton.addEventListener("click", function()
+    {
+        mode = "divide";// Set mode to add mode
+        tempNum = currentNum; // Set the temporary number to be the current number
+        clearDisplay();
+        currentNum = 0;// Reset the current number 
+        displayValue = "";
+
+    })
+   
