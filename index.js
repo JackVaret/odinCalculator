@@ -90,31 +90,33 @@ function clearDisplay()
         displayValue = "";
 
     });
-    
+    // Create a constant for the subtract button
      const subtractButton = document.querySelector(".subtractButton");
     subtractButton.addEventListener("click", function()
     {
-        mode = "subtract";// Set mode to add mode
+        mode = "subtract";// Set mode to subtract mode
         tempNum = currentNum; // Set the temporary number to be the current number
         clearDisplay();
         currentNum = 0;// Reset the current number 
         displayValue = "";
 
     })
+    // Create a constant for the multiply button
     const multiplyButton = document.querySelector(".multiplyButton");
     multiplyButton.addEventListener("click", function()
     {
-        mode = "multiply";// Set mode to add mode
+        mode = "multiply";// Set mode to multiply mode
         tempNum = currentNum; // Set the temporary number to be the current number
         clearDisplay();
         currentNum = 0;// Reset the current number 
         displayValue = "";
 
     })
+    // Create a constant for the divide button
     const divideButton = document.querySelector(".divideButton");
     divideButton.addEventListener("click", function()
     {
-        mode = "divide";// Set mode to add mode
+        mode = "divide";// Set mode to divide mode
         tempNum = currentNum; // Set the temporary number to be the current number
         clearDisplay();
         currentNum = 0;// Reset the current number 
@@ -122,3 +124,29 @@ function clearDisplay()
 
     })
    
+// Create functionality for the equal buton
+    // Create a constant for the equal button
+    const equalsButton = document.querySelector(".equalsButton");
+    // Create variables to store integers and a result
+    let numOne = 0;
+    let numTwo = 0;
+    let result = 0;
+    // Create a function to convert the temp and current numbers into integer
+    function convertToIntegers()
+    {
+        numOne = parseInt(tempNum); // Sent the tempNum to the first number as an integer
+        numTwo = parseInt(currentNum); // Send the current number to the second number as an integer
+
+    }
+    // Create the equalsButton event listener
+    equalsButton.addEventListener("click", function() 
+    {
+        convertToIntegers() // Convert the temp and current nums into integers;
+        result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
+        displayValue = result;//Reflect that result to the display and the displayValue
+        display.innerHTML = displayValue;
+        mode = ""; // Reset the mode
+        currentNum = displayValue // Set current num to the new result display value
+        tempNum = 0; // Reset the temp number
+
+    })
