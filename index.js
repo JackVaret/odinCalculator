@@ -83,44 +83,115 @@ function clearDisplay()
     const addButton = document.querySelector(".addButton");
     addButton.addEventListener("click", function()
     {
-        mode = "add";// Set mode to add mode
-        tempNum = currentNum; // Set the temporary number to be the current number
-        clearDisplay();
-        currentNum = 0;// Reset the current number 
-        displayValue = "";
+        if(mode !="")
+        {
+            convertToIntegers() // Convert the temp and current nums into integers;
+            result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
+            displayValue = result;//Reflect that result to the display and the displayValue
+            display.innerHTML = displayValue;
+            mode = "add"; // Set mode to subtract
+            tempNum = displayValue;
+            currentNum = 0;
+            displayValue = "";
+            display.innerHTML = displayValue;
+
+        }
+        else
+        {
+            mode = "add";// Set mode to add mode
+            tempNum = currentNum; // Set the temporary number to be the current number
+            currentNum = 0;// Reset the current number 
+            displayValue = "";
+            display.innerHTML = displayValue;
+        }
+        
+
 
     });
     // Create a constant for the subtract button
      const subtractButton = document.querySelector(".subtractButton");
     subtractButton.addEventListener("click", function()
     {
-        mode = "subtract";// Set mode to subtract mode
+        if(mode !="")
+        {
+            convertToIntegers() // Convert the temp and current nums into integers;
+            result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
+            displayValue = result;//Reflect that result to the display and the displayValue
+            display.innerHTML = displayValue;
+            mode = "subtract"; // Set mode to subtract
+            tempNum = displayValue;
+            currentNum = 0;
+            displayValue = "";
+            display.innerHTML = displayValue;
+
+        }
+        else{
+            mode = "subtract";// Set mode to subtract mode
         tempNum = currentNum; // Set the temporary number to be the current number
-        clearDisplay();
         currentNum = 0;// Reset the current number 
         displayValue = "";
+        display.innerHTML = displayValue;
+
+        }
+        
+
 
     })
     // Create a constant for the multiply button
     const multiplyButton = document.querySelector(".multiplyButton");
     multiplyButton.addEventListener("click", function()
     {
-        mode = "multiply";// Set mode to multiply mode
-        tempNum = currentNum; // Set the temporary number to be the current number
-        clearDisplay();
-        currentNum = 0;// Reset the current number 
-        displayValue = "";
+        if(mode !="")
+        {
+            convertToIntegers() // Convert the temp and current nums into integers;
+            result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
+            displayValue = result;//Reflect that result to the display and the displayValue
+            display.innerHTML = displayValue;
+            mode = "multiply"; // Set mode to subtract
+            tempNum = displayValue;
+            currentNum = 0;
+            displayValue = "";
+            display.innerHTML = displayValue;
+
+        }
+        else{
+            mode = "multiply";// Set mode to multiply mode
+            tempNum = currentNum; // Set the temporary number to be the current number
+            currentNum = 0;// Reset the current number 
+            displayValue = "";
+            display.innerHTML = displayValue;
+        }
+       
+
 
     })
     // Create a constant for the divide button
     const divideButton = document.querySelector(".divideButton");
     divideButton.addEventListener("click", function()
     {
-        mode = "divide";// Set mode to divide mode
+        if(mode !="")
+        {
+            convertToIntegers() // Convert the temp and current nums into integers;
+            result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
+            displayValue = result;//Reflect that result to the display and the displayValue
+            display.innerHTML = displayValue;
+            mode = "multiply"; // Set mode to subtract
+            tempNum = displayValue;
+            currentNum = 0;
+            displayValue = "";
+            display.innerHTML = displayValue;
+
+        }
+        else
+        {
+            mode = "divide";// Set mode to divide mode
         tempNum = currentNum; // Set the temporary number to be the current number
-        clearDisplay();
         currentNum = 0;// Reset the current number 
         displayValue = "";
+        display.innerHTML = displayValue; // Reset the current display
+        }
+       
+
 
     })
    
@@ -150,3 +221,6 @@ function clearDisplay()
         tempNum = 0; // Reset the temp number
 
     })
+    // Create functionality for stringing things together
+    // Idea 1: If the current mode is not null and another number is pressed, store the results of an operation
+    
