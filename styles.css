@@ -38,6 +38,10 @@
     font-size:20px;
     
 }
+.result
+{
+    font-size:30px;
+}
 .divideZone
 {
     grid-area:divide;

@@ -40,6 +40,9 @@ function operate (operation,firstNumber,secondNumber)
 let displayValue = "";
 // Target the display
 const display = document.querySelector(".display");
+// Create a variable to store the previous numerical result
+const resultNumber = document.querySelector(".result");
+
 // Create a selector to select all of the number buttons
 const allNums = document.querySelectorAll(".num");
 // Create a function to add another string to hte displayValue
@@ -94,6 +97,7 @@ function clearDisplay()
             currentNum = 0;
             displayValue = "";
             display.innerHTML = displayValue;
+            resultNumber.textContent = result;
 
         }
         else
@@ -123,6 +127,7 @@ function clearDisplay()
             currentNum = 0;
             displayValue = "";
             display.innerHTML = displayValue;
+            resultNumber.textContent = result;
 
         }
         else{
@@ -146,12 +151,14 @@ function clearDisplay()
             convertToIntegers() // Convert the temp and current nums into integers;
             result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
             displayValue = result;//Reflect that result to the display and the displayValue
-            display.innerHTML = displayValue;
+            display.textContent = displayValue;
             mode = "multiply"; // Set mode to subtract
             tempNum = displayValue;
             currentNum = 0;
             displayValue = "";
-            display.innerHTML = displayValue;
+            display.itextContent = displayValue;
+            resultNumber.textContent = result; // Display the previous result
+
 
         }
         else{
@@ -159,7 +166,7 @@ function clearDisplay()
             tempNum = currentNum; // Set the temporary number to be the current number
             currentNum = 0;// Reset the current number 
             displayValue = "";
-            display.innerHTML = displayValue;
+            display.textContent = displayValue;
         }
        
 
@@ -174,12 +181,13 @@ function clearDisplay()
             convertToIntegers() // Convert the temp and current nums into integers;
             result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
             displayValue = result;//Reflect that result to the display and the displayValue
-            display.innerHTML = displayValue;
-            mode = "multiply"; // Set mode to subtract
+            display.textContent = displayValue;
+            mode = "divide"; // Set mode to subtract
             tempNum = displayValue;
             currentNum = 0;
             displayValue = "";
-            display.innerHTML = displayValue;
+            display.textContent = displayValue;
+            resultNumber.textContent = result; // Display the previous result 
 
         }
         else
@@ -188,7 +196,7 @@ function clearDisplay()
         tempNum = currentNum; // Set the temporary number to be the current number
         currentNum = 0;// Reset the current number 
         displayValue = "";
-        display.innerHTML = displayValue; // Reset the current display
+        display.textContent = displayValue; // Reset the current display
         }
        
 
@@ -215,7 +223,7 @@ function clearDisplay()
         convertToIntegers() // Convert the temp and current nums into integers;
         result = operate(mode,numOne,numTwo); // Evaluate the selected operation as according to the given mode
         displayValue = result;//Reflect that result to the display and the displayValue
-        display.innerHTML = displayValue;
+        display.textContent = displayValue;
         mode = ""; // Reset the mode
         currentNum = displayValue // Set current num to the new result display value
         tempNum = 0; // Reset the temp number
