@@ -40,11 +40,12 @@ function operate (operation,firstNumber,secondNumber)
 // Create an element for the display itself
 let display = document.querySelector(".display");
 // Create a variable to store the display's value
-let displayValue = display.textContent;
+// Displayvalue is the numeric version of the text content
+let displayValue = parseFloat(display.textContent);
 function populateDisplay(e)
 {
     display.textContent +=e.target.textContent;
-    displayValue = display.textContent;
+    displayValue = parseFloat(display.textContent);
 }
 // Add this function to all of the number buttons
 document.querySelectorAll(".num").forEach(num => 
