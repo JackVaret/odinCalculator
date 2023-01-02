@@ -15,6 +15,10 @@ function divide (firstNumber,secondNumber)
 {
     return firstNumber / secondNumber;
 }
+function percent(firstNumber,secondNumber)
+{
+    return (firstNumber/100) * secondNumber;
+}
 // Create function to perform a given mathematical operation with two numbers
 function operate (operation,firstNumber,secondNumber)
 {
@@ -33,6 +37,10 @@ function operate (operation,firstNumber,secondNumber)
     else if(operation === "divide")
     {
         return divide(firstNumber,secondNumber);
+    }
+    else if(operation ==="percent")
+    {
+        return percent(firstNumber,secondNumber);
     }
 }
 // Create functionality so that buttons can populate the display
@@ -140,8 +148,8 @@ equalsButton.addEventListener("click"
     currentOperation = "";
     firstNum = 0;
     secondNum = 0;
+    displayValue = parseFloat(display.textContent);
     operationPressed = false;
-    displayValue = 0;
     justEvaluated = true;
 })
 // create a varibale to track if you've just pressed the equals button
@@ -174,4 +182,19 @@ function()
     display.textContent+=".";
     displayValue = parseFloat(display.textContent);
     }
+})
+// Add a positive/negative button
+const signsButton = document.querySelector(".negativeButton");
+signsButton.addEventListener("click",
+function()
+
+{
+    displayValue = displayValue *-1;
+    display.textContent = displayValue;
+})
+// Add a percent button
+const percentButton = document.querySelector(".percentButton");
+percentButton.addEventListener("click",function()
+{
+    setOperation("percent");
 })
