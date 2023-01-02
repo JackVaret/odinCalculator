@@ -93,13 +93,14 @@ function setOperation(typeOfOperation)
 
     }
     else
-    {clearDisplay()
-    // Set operationPressed to true
-    operationPressed = true;
-    firstNum = displayValue;
-    // Set the current operation
-    currentOperation = typeOfOperation;
-    // If no operation is pressed, don't allow the user to press the equal button 
+    {   
+        clearDisplay()
+        // Set operationPressed to true
+        operationPressed = true;
+        firstNum = displayValue;
+        // Set the current operation
+        currentOperation = typeOfOperation;
+        // If no operation is pressed, don't allow the user to press the equal button 
     }
 }
    // Add that logic as eventlisteners for the operation buttons
@@ -137,8 +138,40 @@ equalsButton.addEventListener("click"
     secondNum = displayValue;
     display.textContent=operate(currentOperation,firstNum,secondNum,);
     currentOperation = "";
+    firstNum = 0;
     secondNum = 0;
+    operationPressed = false;
+    displayValue = 0;
     justEvaluated = true;
 })
 // create a varibale to track if you've just pressed the equals button
 let justEvaluated = false;
+// Add a clear button
+const clearButton = document.querySelector(".clearButton")
+clearButton.addEventListener("click",
+function()
+{
+    clearDisplay();
+    firstNum = 0;
+    secondNum = 0;
+    currentOperation = "";
+    operationPressed = false;
+    displayValue = 0;
+})
+// Add the decimal button;
+const decimalButton = document.querySelector(".decimalButton")
+// Add avariable to track if a decimal has been pressed
+decimalPresent = false;
+
+decimalButton.addEventListener("click",
+function()
+{
+    if(display.textContent.includes("."))
+    {
+        return;
+    }
+    else{
+    display.textContent+=".";
+    displayValue = parseFloat(display.textContent);
+    }
+})
